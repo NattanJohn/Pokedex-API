@@ -17,6 +17,7 @@
 .pokemonName{
     color: #fff;
     margin-bottom: 0;
+    text-transform: capitalize;
 }
 .pokemonsList .pokemonDetail{
     display: flex;

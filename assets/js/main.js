@@ -1,9 +1,32 @@
-const offset = 0;
-const limit = 10;
-const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
+function pokemonHTML(pokemon) {
+    return `
+        <li class="pokemon">
+            <span class="number">#001</span>
+            <span class="pokemonName">${pokemon.name}</span>
+            <div class="pokemonDetail">
+                <ol class="types">
+                    <li class="type">Poison</li>
+                    <li class="type">Grass</li>
+                </ol>
+                <img
+                    class="pokemonImg"
+                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
+                    alt="${pokemon.name}"/>
+            </div>
+        </li>`;
+}
 
-fetch(url).then(function (response) {
-    console.log(response);
+const pokemonsOl = document.getElementById("pokemonsListId");
+
+pokeApi.getPokemons().then((pokemonList = []) => {
+    pokemonsOl.innerHTML += pokemonList.map(pokemonHTML).join("");
+
+    // Código antes do refatoramento com map ----------------------
+
+    //const listItem = [];
+    //for (let i = 0; i < pokemonList.length; i++) {
+    //  const pokemon = pokemonList[i];
+    // listItem.push(pokemonHTML(pokemon));
+    // pokemonsOl.innerHTML += pokemonHTML(pokemon);
+    //}
 });
-
-console.log("Ola mundo");
