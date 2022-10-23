@@ -19,7 +19,8 @@ function pokemonHTML(pokemon) {
 const pokemonsOl = document.getElementById("pokemonsListId");
 
 pokeApi.getPokemons().then((pokemonList = []) => {
-    pokemonsOl.innerHTML += pokemonList.map(pokemonHTML).join("");
+    const newHtml = pokemonList.map(pokemonHTML).join("");
+    pokemonsOl.innerHTML = newHtml;
 
     // Código antes do refatoramento com map ----------------------
 
