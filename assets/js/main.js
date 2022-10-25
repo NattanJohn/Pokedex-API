@@ -1,3 +1,8 @@
+const pokemonsOl = document.getElementById("pokemonsListId");
+const buttonPagination = document.getElementById("buttonPagination");
+let limit = 20;
+let offset = 0;
+
 function pokemonHTML(pokemon) {
     return `
         <li class="pokemon ${pokemon.type}">
@@ -19,18 +24,28 @@ function pokemonHTML(pokemon) {
         </li>`;
 }
 
-const pokemonsOl = document.getElementById("pokemonsListId");
+function loadPokemonItens(offset, limit) {
+    pokeApi.getPokemons(offset, limit).then((pokemonList = []) => {
+        const newHtml = pokemonList.map(pokemonHTML).join("");
+        pokemonsOl.innerHTML += newHtml;
+    });
+}
 
-pokeApi.getPokemons().then((pokemonList = []) => {
-    const newHtml = pokemonList.map(pokemonHTML).join("");
-    pokemonsOl.innerHTML = newHtml;
+loadPokemonItens(offset, limit);
 
-    // Código antes do refatoramento com map ----------------------
-
-    //const listItem = [];
-    //for (let i = 0; i < pokemonList.length; i++) {
-    //  const pokemon = pokemonList[i];
-    // listItem.push(pokemonHTML(pokemon));
-    // pokemonsOl.innerHTML += pokemonHTML(pokemon);
-    //}
+buttonPagination.addEventListener("click", () => {
+    offset += limit;
+    loadPokemonItens(offset, limit);
+    if (offset >= 700) {
+        buttonPagination.parentElement.removeChild(buttonPagination);
+    }
 });
+
+// Código antes do refatoramento com map ----------------------
+
+//const listItem = [];
+//for (let i = 0; i < pokemonList.length; i++) {
+//  const pokemon = pokemonList[i];
+// listItem.push(pokemonHTML(pokemon));
+// pokemonsOl.innerHTML += pokemonHTML(pokemon);
+//}
