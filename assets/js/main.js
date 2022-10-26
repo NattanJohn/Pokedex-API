@@ -1,4 +1,5 @@
 const pokemonsOl = document.getElementById("pokemonsListId");
+const pokemonPage = document.querySelector(".oi");
 const buttonPagination = document.getElementById("buttonPagination");
 let limit = 20;
 let offset = 0;
@@ -36,7 +37,7 @@ loadPokemonItens(offset, limit);
 buttonPagination.addEventListener("click", () => {
     offset += limit;
     loadPokemonItens(offset, limit);
-    if (offset >= 700) {
+    if (offset >= 699) {
         buttonPagination.parentElement.removeChild(buttonPagination);
     }
 });
