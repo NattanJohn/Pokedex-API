@@ -56,8 +56,11 @@
     display: grid;
     grid-template-columns: 1fr;
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
+}
+.pokemon{
+    height: auto;
 }
 .pokemon:hover {
 	animation: bounce 0.5s linear;
@@ -75,19 +78,23 @@
 }
 .pokemonName{
     color: #fff;
-    margin-bottom: 0;
+    margin:auto;
     text-transform: capitalize;
+    font-size: 1.5rem;
 }
 .pokemonsList .pokemonDetail{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }
 .pokemonsList .types{
     padding: 0;
-    margin: 0;
+    margin: 1rem 0rem;
     list-style: none;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
 }
 .oi{
     background-color: #000;
@@ -95,16 +102,26 @@
 .type{
     color: #fff;
     padding: 0.25rem 1rem;
-    margin: 0.25rem 0;
-    font-size: 0.625rem;
+    margin: 0.25rem 0.25rem;
+    font-size: 0.825rem;
     border-radius: 1rem;
     text-transform: capitalize;
     filter: brightness(1.1);
 }
+.circle{
+    background-color: #fff ;
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    padding-bottom: 20px;
+    margin: 20px 0px 0px 0px;
+}
 .pokemonsList .pokemonImg{
     max-width: 100%;
-    height: 70px;
-    align-self: flex-end;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
 }
 
 .pokemonsList .number{
@@ -115,18 +132,20 @@
 }
 @media (min-width: 380px){
     .pokemonsList{
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
 }
 
 @media (min-width: 576px){
     .pokemonsList{
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 }
 @media (min-width: 992px){
     .pokemonsList{
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin: 0;
+        padding: 0;
     }
 }
 @keyframes bounce {

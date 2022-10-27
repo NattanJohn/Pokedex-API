@@ -10,6 +10,12 @@ function pokemonHTML(pokemon) {
             <span class="number">${pokemon.pokemonNumber}</span>
             <span class="pokemonName">${pokemon.name}</span>
             <div class="pokemonDetail">
+                <div class= "circle">
+                <img
+                    class="pokemonImg"
+                    src="${pokemon.photo}"
+                    alt="${pokemon.name}"/>
+                </div>
                 <ol class="types">
                     ${pokemon.types
                         .map(
@@ -17,10 +23,6 @@ function pokemonHTML(pokemon) {
                         )
                         .join("")}
                 </ol>
-                <img
-                    class="pokemonImg"
-                    src="${pokemon.photo}"
-                    alt="${pokemon.name}"/>
             </div>
         </li>`;
 }
