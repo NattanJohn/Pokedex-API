@@ -3,7 +3,9 @@
     box-sizing: border-box;
 }
 body{
-    background: linear-gradient(to right, rgb(197, 230, 236), rgb(239, 187, 230));
+    background: linear-gradient(45deg, rgb(197, 230, 236), rgb(239, 187, 230));
+    color: 800% 800%;
+    animation: GradientBackground 10s ease infinite;
 }
 .content{
     height: 100vh;
@@ -38,3 +40,16 @@ body{
         border-radius: 1rem;
     }
 }
+@keyframes GradientBackground {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  };

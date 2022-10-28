@@ -10,11 +10,27 @@ function pokemonHTML(pokemon) {
             <span class="number">${pokemon.pokemonNumber}</span>
             <span class="pokemonName">${pokemon.name}</span>
             <div class="pokemonDetail">
-                <div class= "circle">
                 <img
                     class="pokemonImg"
                     src="${pokemon.photo}"
                     alt="${pokemon.name}"/>
+                <div class = "pokemonStatus">    
+                    <ol class="stats">
+                        ${pokemon.stats
+                            .map(
+                                (stat) =>
+                                    `<li class = "stat ${stat}">${stat}</li>`
+                            )
+                            .join("")} 
+                    </ol>
+                    <ol class="stats">
+                        ${pokemon.baseStats
+                            .map(
+                                (baseStat) =>
+                                    `<li class = "stat ${baseStat}">${baseStat}</li>`
+                            )
+                            .join("")} 
+                    </ol>
                 </div>
                 <ol class="types">
                     ${pokemon.types
@@ -43,12 +59,3 @@ buttonPagination.addEventListener("click", () => {
         buttonPagination.parentElement.removeChild(buttonPagination);
     }
 });
-
-// Código antes do refatoramento com map ----------------------
-
-//const listItem = [];
-//for (let i = 0; i < pokemonList.length; i++) {
-//  const pokemon = pokemonList[i];
-// listItem.push(pokemonHTML(pokemon));
-// pokemonsOl.innerHTML += pokemonHTML(pokemon);
-//}
