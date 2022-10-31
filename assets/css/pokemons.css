@@ -63,7 +63,7 @@
     height: auto;
 }
 .pokemon:hover {
-	animation: nameAnimation 0.5s linear;
+	animation: bounce 0.5s linear;
 }
 .pokemonsList .pokemon{
     display: flex;
